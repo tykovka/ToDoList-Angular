@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-task.component.scss']
 })
 export class CreateTaskComponent implements OnInit {
-  public title: string = 'new';
+  public title: string = '';
   constructor(private service: TaskService,
     private router: Router) { }
 
