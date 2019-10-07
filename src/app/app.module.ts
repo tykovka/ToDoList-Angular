@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { TaskComponent } from './task/task.component';
 import { TaskContainerComponent } from './task-container/task-container.component';
 import { TasksContainerComponent } from './tasks-container/tasks-container.component';
+import { TaskService } from './task.service';
+import { ApiService } from './api.service';
 
 @NgModule({
   declarations: [
@@ -22,9 +25,13 @@ import { TasksContainerComponent } from './tasks-container/tasks-container.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    TaskService,
+    ApiService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

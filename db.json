@@ -1,0 +1,26 @@
+{
+"tasks": [
+  { "id": "2",
+    "title": "Бег 10км",
+    "status": "TaskStatus.Uncompleted",
+    "priority": "TaskPriority.Important"
+
+  },
+  { "id": "3",
+    "title": "ToDoList Angular",
+    "status": "TaskStatus.Uncompleted",
+    "priority": "TaskPriority.Important"
+
+  },
+  { "id": "4",
+    "title": "Посмотреть Звездные войны",
+    "status": "TaskStatus.Completed",
+    "priority": "TaskPriority.Idea"
+  },
+  { "id": "5",
+    "title": "Посмотреть Звездные войны",
+    "status": "TaskStatus.Completed",
+    "priority": "TaskPriority.Idea"
+  }
+]
+}
