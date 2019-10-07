@@ -26,7 +26,7 @@ export class ApiService<T> {
     return this.http.get<T>(`${ApiService.API_URL}/${path}/${id}`);
   }
 
-  create(path: string, item: T): Observable<T> {
+  create(path: string, item: Partial<T>): Observable<T> {
     return this.http.post<T>(`${ApiService.API_URL}/${path}`, item);
   }
 

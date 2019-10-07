@@ -12,6 +12,8 @@ import { TaskContainerComponent } from './task-container/task-container.componen
 import { TasksContainerComponent } from './tasks-container/tasks-container.component';
 import { TaskService } from './task.service';
 import { ApiService } from './api.service';
+import { HeaderComponent } from './header/header.component';
+import { CreateTaskComponent } from './create-task/create-task.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ApiService } from './api.service';
     NotFoundComponent,
     TaskComponent,
     TaskContainerComponent,
-    TasksContainerComponent
+    TasksContainerComponent,
+    HeaderComponent,
+    CreateTaskComponent
   ],
   imports: [
     BrowserModule,
