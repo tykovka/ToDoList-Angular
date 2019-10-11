@@ -1,38 +1,52 @@
 {
   "tasks": [
     {
-      "id": "2",
-      "title": "Бег 10км",
+      "id": 3,
+      "title": "ToDoList Angular3",
       "status": 0,
       "priority": "TaskPriority.Important"
     },
     {
-      "id": "3",
+      "id": 4,
+      "title": "ToDoList Angular4",
+      "status": 0,
+      "priority": "TaskPriority.Important"
+    },
+    {
+      "id": 5,
+      "title": "ToDoList Angular5",
+      "status": 0,
+      "priority": "TaskPriority.Important"
+    },
+    {
+      "id": 6,
+      "title": "ToDoList Angular6",
+      "status": 0,
+      "priority": "TaskPriority.Important"
+    },
+    {
+      "id": 7,
       "title": "ToDoList Angular",
       "status": 0,
       "priority": "TaskPriority.Important"
     },
     {
-      "id": "4",
-      "title": "Посмотреть Звездные войны",
-      "status": 1,
-      "priority": "TaskPriority.Idea"
-    },
-    {
-      "id": "5",
-      "title": "Посмотреть Звездные войны",
-      "status": 2,
-      "priority": "TaskPriority.Idea"
-    },
-    {
-      "title": "выпить кофе и обед",
+      "id": 8,
+      "title": "ToDoList Angular",
       "status": 0,
-      "id": "c-oqvxQ"
+      "priority": "TaskPriority.Important"
     },
     {
-      "title": "выпить кофе и обед",
+      "id": 9,
+      "title": "ToDoList Angular",
       "status": 0,
-      "id": "4-qNGSE"
+      "priority": "TaskPriority.Important"
+    },
+    {
+      "id": 10,
+      "title": "ToDoList Angular",
+      "status": 0,
+      "priority": "TaskPriority.Important"
     }
   ]
 }

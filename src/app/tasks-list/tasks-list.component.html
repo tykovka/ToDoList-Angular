@@ -10,3 +10,4 @@
     </li>
   </ul>
   <div *ngIf = "!tasks || !tasks.length"> Отдыхай, сегодня без задач!</div>
+<button class = "btn btn-success" [routerLink]="['/tasks/create']">Create new task</button>

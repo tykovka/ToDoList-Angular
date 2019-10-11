@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService, GenericService } from './api.service';
-import { Task } from './task'
+import { Task, TaskStatus } from './task'
 import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -30,15 +30,36 @@ export class TaskService implements GenericService<Task> {
     return response$;
   }
 
-  get(id: string): Observable<Task> {
+  get(id: number): Observable<Task> {
     return this.api.get('tasks', id);
   }
 
-  update(id: string, task: Partial<Task>): Observable<Task> {
-    return this.api.update('tasks', id,task);
+  update(id: number, task: Partial<Task>): Observable<Task> {
+    const response$ = this.api.update('tasks', id, task);
+    response$.subscribe((updateTask: Task)=> {
+      let prevTask = this._tasks.getValue()
+      prevTask.forEach((item, index) => {
+        if (item.id === id) {
+          updateTask.status = TaskStatus.Completed;
+          prevTask.splice(index, 1, updateTask);
+        }
+      });
+      this._tasks.next(prevTask);
+    })
+   return response$;
   }
 
-  delete(id: string): Observable<Task> {
-    return this.api.delete('tasks', id);
+  delete(id: number): Observable<Task> {
+    const response$ = this.api.delete('tasks', id)
+    response$ .subscribe(()=> {
+      let prevTasks = this._tasks.getValue();
+      prevTasks.forEach(item => {
+        if(item.id === id) {
+          prevTasks.splice(prevTasks.indexOf(item), 1)
+        }
+      });
+      this._tasks.next(prevTasks);
+    });
+    return response$;
   }
 }

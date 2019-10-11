@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../task.service';
 import { TaskStatus } from '../task';
 import { Router } from '@angular/router';
+import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-create-task',
@@ -10,8 +11,12 @@ import { Router } from '@angular/router';
 })
 export class CreateTaskComponent implements OnInit {
   public title: string = '';
-  constructor(private service: TaskService,
-    private router: Router) { }
+  private taskForm: FormGroup;
+  constructor(
+    private service: TaskService,
+    private router: Router,
+    private fb: FormBuilder,
+  ) { }
 
   onCreate(): void {
     this.service.create({
@@ -23,6 +28,9 @@ export class CreateTaskComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.taskForm = this.fb.group({
+      title: new FormControl('', [Validators.required, Validators.minLength(5)])
+    })
   }
 
 
