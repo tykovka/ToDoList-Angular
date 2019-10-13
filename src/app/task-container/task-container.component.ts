@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { range, Observable } from 'rxjs';
 import { map, filter, pairwise, switchMap} from 'rxjs/operators';
 import { TaskService } from '../task.service';
-
 @Component({
   selector: 'app-task-container',
   template: `<app-task [task] = "task | async"></app-task>`
