@@ -20,7 +20,7 @@ export class CreateTaskComponent implements OnInit {
 
   onCreate(): void {
     this.service.create({
-      title: this.title,
+      title: this.taskForm.value.title,
       status: TaskStatus.Uncompleted,
     }).subscribe(() => {
       this.router.navigate(['/tasks']);

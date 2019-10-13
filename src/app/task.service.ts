@@ -50,6 +50,8 @@ export class TaskService implements GenericService<Task> {
   }
 
   delete(id: number): Observable<Task> {
+
+    // return this.api.delete('tasks',id);
     const response$ = this.api.delete('tasks', id)
     response$ .subscribe(()=> {
       let prevTasks = this._tasks.getValue();

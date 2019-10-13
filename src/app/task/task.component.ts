@@ -3,6 +3,7 @@ import { Task, TaskStatus } from '../task';
 import { TaskService } from '../task.service';
 import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-task',
@@ -14,14 +15,15 @@ export class TaskComponent implements OnInit {
   constructor(
     private service: TaskService,
     private router: Router,
-    private fb: FormBuilder,) { }
+    private fb: FormBuilder,
+    private location: Location) { }
 
   public onDelete(id: number) {
     this.service.delete(
       this.task.id)
       .subscribe(() => {
-        this.router.navigate(['/tasks']);
       })
+      this.router.navigate(['/tasks']);
   }
   public onUpdate() {
     this.service.update(
