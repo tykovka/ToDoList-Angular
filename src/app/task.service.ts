@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiService, GenericService } from './api.service';
 import { Task, TaskStatus } from './task'
 import { Observable, BehaviorSubject } from 'rxjs';
+// import { ConsoleReporter } from 'jasmine';
 
 @Injectable({
   providedIn: 'root'
@@ -50,14 +51,12 @@ export class TaskService implements GenericService<Task> {
   }
 
   delete(id: number): Observable<Task> {
-
-    // return this.api.delete('tasks',id);
     const response$ = this.api.delete('tasks', id)
     response$ .subscribe(()=> {
       let prevTasks = this._tasks.getValue();
-      prevTasks.forEach(item => {
+      prevTasks.forEach( (item, index) => {
         if(item.id === id) {
-          prevTasks.splice(prevTasks.indexOf(item), 1)
+          prevTasks.splice(index, 1)
         }
       });
       this._tasks.next(prevTasks);

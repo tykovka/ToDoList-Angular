@@ -15,6 +15,10 @@ import { TaskService } from './task.service';
 import { ApiService } from './api.service';
 import { HeaderComponent } from './header/header.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { TasksEffects } from './tasks.effects';
 
 @NgModule({
   declarations: [
@@ -34,6 +38,8 @@ import { CreateTaskComponent } from './create-task/create-task.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([TasksEffects]),
   ],
   providers: [
     TaskService,
