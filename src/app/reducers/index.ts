@@ -6,7 +6,7 @@ import {
   MetaReducer
 } from '@ngrx/store';
 import { environment } from '../../environments/environment';
-import { tasksFeatureKey, reducer as tasksReducer } from '../tasks.reducer';
+import { tasksFeatureKey, reducer as tasksReducer, State as TaskState } from '../tasks.reducer';
 
 export const stateFeatureKey = 'state';
 
@@ -21,3 +21,13 @@ export const reducers: ActionReducerMap<State> = {
 
 
 export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];
+
+const selectTasks = (state: State) => state[tasksFeatureKey];
+export const selectTasksLoading = createSelector(
+  selectTasks,
+  (state: TaskState) => state.loading,
+);
+export const SelectTasksEntities = createSelector(
+  selectTasks,
+  (state: TaskState) => state.entities,
+);

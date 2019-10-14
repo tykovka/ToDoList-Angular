@@ -17,6 +17,8 @@ import { HeaderComponent } from './header/header.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { TasksEffects } from './tasks.effects';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { reducers } from './reducers';
     FormsModule,
     ReactiveFormsModule,
     StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([TasksEffects]),
   ],
   providers: [
     TaskService,
